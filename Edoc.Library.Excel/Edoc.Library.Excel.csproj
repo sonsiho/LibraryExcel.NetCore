@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Xls\EdocXlsWorkbook.cs" />
+    <Compile Remove="Xls\EdocXlsWorksheet.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GemBox.Spreadsheet">
+      <HintPath>lib\GemBox.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeExcel">
+      <HintPath>lib\NativeExcel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
