@@ -17,4 +17,10 @@
     <ProjectReference Include="..\Edoc.Library.Excel\Edoc.Library.Excel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="GemBox.Spreadsheet">
+      <HintPath>..\Edoc.Library.Excel\lib\GemBox.Spreadsheet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

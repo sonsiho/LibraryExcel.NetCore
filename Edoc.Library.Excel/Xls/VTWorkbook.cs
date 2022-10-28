@@ -12,10 +12,23 @@ namespace Edoc.Library.Excel.Xls
     public class VTWorkbook : VTWorkbookFactory, IVTWorkbook
     {
         private NativeExcel.IWorkbook _workbook { get; set; }
+        private IVTWorksheets _vtWorkSheets { get; set; }
+
+        public bool IsProtected => this._workbook.IsProtected;
+
+        public IVTWorksheets Worksheets => this._vtWorkSheets;
 
         public VTWorkbook(string templateFilePath) : base(templateFilePath)
         {
             _workbook = NativeExcel.Factory.OpenWorkbook(templateFilePath);
+            _vtWorkSheets = new VTWorksheets(_workbook.Worksheets);
+           
+        }
+
+        public VTWorkbook(string templateFilePath,string password) : base(templateFilePath, password)
+        {
+            _workbook = NativeExcel.Factory.OpenWorkbook(templateFilePath, password);
+            _vtWorkSheets = new VTWorksheets(_workbook.Worksheets);
         }
 
         public async Task<byte[]> ToByteArrAsync()
@@ -27,31 +40,25 @@ namespace Edoc.Library.Excel.Xls
             return result;
         }
 
-        public void SaveAs(string filePath)
+        public async Task SaveAsAsync(string filePath)
         {
-            _workbook.SaveAs(TempFilePath);
-            this.RemoveLicense();
-            File.Copy(TempFilePath, filePath);
+            var byteArray = await this.ToByteArrAsync();
+
+            await File.WriteAllBytesAsync(filePath, byteArray);
         }
 
-        public void Protect()
+        public IVTWorkbook Protect(string Password)
         {
-            throw new NotImplementedException();
+            this._workbook.Protect(Password);
+
+            return this;
         }
 
-        public void Protect(string Password)
+        public IVTWorkbook Unprotect(string Password)
         {
-            throw new NotImplementedException();
-        }
+            this._workbook.Unprotect(Password);
 
-        public void Unprotect()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Unprotect(string Password)
-        {
-            throw new NotImplementedException();
+            return this;
         }
     }
 }

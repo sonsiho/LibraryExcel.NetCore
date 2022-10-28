@@ -19,5 +19,18 @@ namespace Edoc.Library.Excel
                 throw new Exception("Invalid excel path");
             }
         }
+
+        public static IVTWorkbook OpenWorkBook(string templateFilePath,string password)
+        {
+            var fileExtension = Path.GetExtension(templateFilePath);
+            if (fileExtension == ".xls")
+            {
+                return new VTWorkbook(templateFilePath, password);
+            }
+            else
+            {
+                throw new Exception("Invalid excel path");
+            }
+        }
     }
 }
