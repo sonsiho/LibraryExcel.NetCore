@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Xls\EdocXlsWorkbook.cs" />
-    <Compile Remove="Xls\EdocXlsWorksheet.cs" />
+    <Compile Remove="Core\EdocXlsWorkbook.cs" />
+    <Compile Remove="Core\EdocXlsWorksheet.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,12 +14,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>lib\Aspose\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="GemBox.Spreadsheet">
       <HintPath>lib\GemBox.Spreadsheet.dll</HintPath>
     </Reference>
-    <Reference Include="NativeExcel">
-      <HintPath>lib\NativeExcel.dll</HintPath>
-    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="lib\Aspose\Aspose.License.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

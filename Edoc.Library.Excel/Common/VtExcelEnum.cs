@@ -1,0 +1,100 @@
+﻿using Aspose.Cells;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Edoc.Library.Excel.Common
+{
+    public enum VtFileFormatType
+    {
+        CSV = 1,
+        Excel97To2003 = 5,
+        Xlsx = 6,
+        Xlsm = 7,
+        Xltx = 8,
+        Xltm = 9,
+        Xlam = 10,
+        TSV = 11,
+        TabDelimited = 11,
+        Html = 12,
+        Pdf = 13,
+        ODS = 14,
+        Excel2003XML = 15,
+        Xlsb = 16,
+        MHtml = 17,
+        XPS = 20,
+        TIFF = 21,
+        Excel95 = 22,
+        Excel4 = 23,
+        Excel3 = 24,
+        Excel2 = 25,
+        Pptx = 26,
+        Docx = 27,
+        SVG = 28,
+        Dif = 30,
+        Doc = 31,
+        Ppt = 32,
+        MapiMessage = 33,
+        MSEquation = 34,
+        Ole10Native = 35,
+        VSD = 36,
+        VSDX = 37,
+        Docm = 38,
+        Dotx = 39,
+        Dotm = 40,
+        Pptm = 41,
+        Potx = 42,
+        Potm = 43,
+        Ppsx = 44,
+        Ppsm = 45,
+        Ooxml = 46,
+        ODT = 47,
+        ODP = 48,
+        ODF = 49,
+        ODG = 50,
+        XML = 51,
+        Xlt = 52,
+        OTT = 53,
+        BMP = 54,
+        OTS = 55,
+        Numbers = 56,
+        Markdown = 57,
+        GraphChart = 58,
+        FODS = 59,
+        SXC = 60,
+        OTP = 61,
+        Numbers35 = 62,
+        Unknown = 255
+    }
+
+    public enum VtSaveFormat
+    {
+        Auto = 0,
+        CSV = 1,
+        Excel97To2003 = 5,
+        Xlsx = 6,
+        Xlsm = 7,
+        Xltx = 8,
+        Xltm = 9,
+        Xlam = 10,
+        TSV = 11,
+        TabDelimited = 11,
+        Html = 12,
+        Pdf = 13,
+        ODS = 14,
+        SpreadsheetML = 15,
+        Xlsb = 16,
+        MHtml = 17,
+        XPS = 20,
+        TIFF = 21,
+        SVG = 22,
+        Dif = 30,
+        Numbers = 56,
+        Markdown = 57,
+        FODS = 59,
+        SXC = 60,
+        Unknown = 255
+    }
+}

@@ -1,23 +1,15 @@
-﻿using NativeExcel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Aspose.Cells;
 
 namespace Edoc.Library.Excel.Interface
 {
     public interface IVTWorksheet
     {
+        Worksheet Worksheet { get; set; }
         string Name { get; set; }
 
-        int Index { get; }
+        IVTWorksheet SetCellValue(string cell, object value);
 
-        IVTRange Cells { get; }
-
-        void SetCellValue(string cell, object value);
-
-        void SetCellValue(int row, int column, object value);
+        IVTWorksheet SetCellValue(int row, int column, object value);
 
         object GetCellValue(int row, int column);
 
@@ -26,5 +18,6 @@ namespace Edoc.Library.Excel.Interface
         T GetCellValue<T>(string cell);
 
         T GetCellValue<T>(int row, int column);
+        IVTWorksheet CopyAndInsertARow(int copiedRow, int insertRow);
     }
 }

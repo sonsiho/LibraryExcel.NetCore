@@ -1,20 +1,25 @@
-﻿using System.Threading.Tasks;
+﻿using Aspose.Cells;
+using Edoc.Library.Excel.Common;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Edoc.Library.Excel.Interface
 {
     public interface IVTWorkbook
     {
-        IVTWorksheets Worksheets { get; }
+        Workbook Workbook { get; set; }
 
-        Task<byte[]> ToByteArrAsync();
+        void Save(string filePath, VtSaveFormat saveFormat = VtSaveFormat.Auto);
 
-        Task SaveAsAsync(string pathFile);
+        Stream ToStream();
 
+        Stream ToStream(VtSaveFormat saveFormat = VtSaveFormat.Auto);
 
-        IVTWorkbook Protect(string Password);
+        List<IVTWorksheet> GetSheets();
 
-        IVTWorkbook Unprotect(string Password);
+        IVTWorksheet GetSheet(int index);
 
-        bool IsProtected { get; }
+        IVTWorksheet GetSheet(string sheetName);
     }
 }

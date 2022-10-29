@@ -1,5 +1,6 @@
-﻿using Edoc.Library.Excel.Interface;
-using Edoc.Library.Excel.Xls;
+﻿using Edoc.Library.Excel.Common;
+using Edoc.Library.Excel.Core;
+using Edoc.Library.Excel.Interface;
 using System;
 using System.IO;
 
@@ -7,30 +8,14 @@ namespace Edoc.Library.Excel
 {
     public static class EdocExcel
     {
-        public static IVTWorkbook OpenWorkBook(string templateFilePath)
+        public static IVTWorkbook OpenWorkBook(string templateFilePath, string password = null)
         {
-            var fileExtension = Path.GetExtension(templateFilePath);
-            if (fileExtension == ".xls")
-            {
-                return new VTWorkbook(templateFilePath);
-            }
-            else
-            {
-                throw new Exception("Invalid excel path");
-            }
+            return new VTWorkbook(templateFilePath, password);
         }
 
-        public static IVTWorkbook OpenWorkBook(string templateFilePath,string password)
+        public static IVTWorkbook CreateWorkBook(VtFileFormatType fileFormatType)
         {
-            var fileExtension = Path.GetExtension(templateFilePath);
-            if (fileExtension == ".xls")
-            {
-                return new VTWorkbook(templateFilePath, password);
-            }
-            else
-            {
-                throw new Exception("Invalid excel path");
-            }
+            return new VTWorkbook(fileFormatType);
         }
     }
 }

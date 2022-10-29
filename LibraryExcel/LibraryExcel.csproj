@@ -18,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\Edoc.Library.Excel\lib\Aspose\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="GemBox.Spreadsheet">
       <HintPath>..\Edoc.Library.Excel\lib\GemBox.Spreadsheet.dll</HintPath>
     </Reference>
